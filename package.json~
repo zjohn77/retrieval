@@ -1,0 +1,32 @@
+{
+  "name": "bm25ranking",
+  "version": "0.1.0",
+  "description": "Ranks text via the Okapi BM25 ranking function.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/test_bm25ranking.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zjohn77/bm25ranking.git"
+  },
+  "keywords": [
+    "okapi",
+    "bm25",
+    "tfidf",
+    "tf-idf",
+    "term weighting",
+    "vector space model",
+    "idf",
+    "inverse document frequency"
+  ],
+  "author": "John Jung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zjohn77/bm25ranking/issues"
+  },
+  "homepage": "https://github.com/zjohn77/bm25ranking#readme"
+}
