@@ -1,1 +1,1 @@
-require('./app/controller/bm25')  
+require('./app/bm25ranking')  
