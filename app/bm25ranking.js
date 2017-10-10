@@ -2,7 +2,6 @@
 * Vectorize the NLP/chunked/lemmatized texts to matrix of BM25 weights.
 */
 
-const nlprocess = require("../lib/NLProc");
 const Bm25 = require("../lib/bm25");
 
 console.log(nlprocess('John is a data scientist who happens to like coffee.'));
