@@ -1,7 +1,7 @@
 /*DOCSTRING Compute bm25*/
-const memoizeIdf = require("../../node_modules/idf_map");
-const vsmObj = require("../view/corpus2vsm.js");
-const bm25formula = require("../model/bm25formula.js");
+const bm25formula = require("./bm25formula/bm25formula.js");
+const memoizeIdf = require("./idf_map/idf_map.js");
+const vsmObj = require("./vec_space/vec_space.js");
 
 module.exports = (function()
 {
