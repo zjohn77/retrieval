@@ -1,6 +1,6 @@
-const chunker = require("../lib/chunk.js");
-const removeStopwords = require("../lib/filter_stopwords.js");
-const porter = require("../lib/stem_porter2.js");
+const chunker = require("./lib/chunk.js");
+const removeStopwords = require("./lib/filter_stopwords.js");
+const porter = require("./lib/stem_porter2.js");
 
 /**
  * Chunk, filter, then stem, in that order.

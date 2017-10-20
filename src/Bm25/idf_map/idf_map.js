@@ -1,8 +1,8 @@
 /*DOCSTRING Computes a hashtable that maps the unique terms of a corpus to their
 IDF's.
 */
-const vocab = require("../lib/vocab.js");
-const idf = require("../lib/idf.js");
+const vocab = require("./lib/vocab.js");
+const idf = require("./lib/idf.js");
 
 module.exports = (function()
 {
