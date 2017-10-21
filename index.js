@@ -1,1 +1,1 @@
-require('./app/bm25ranking')  
+module.exports = require('./src/bm25nlp.js');  
