@@ -1,6 +1,6 @@
 {
-  "name": "bm25ranking",
-  "version": "0.1.0",
+  "name": "okapi-bm25",
+  "version": "1.0.0",
   "description": "Ranks text via the Okapi BM25 ranking function.",
   "main": "index.js",
   "directories": {
