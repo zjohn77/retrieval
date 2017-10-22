@@ -11,6 +11,6 @@ module.exports = function(docArray){
                            .filter(function(arr){
                                     return arr.length > 0;
                                   });
-  let bm25 = new Bm25(stemsArray);
+  let bm25 = new Bm25(corpusMatr=stemsArray, K=1.6, B=0.75);
   return bm25.buildMatr();
 };

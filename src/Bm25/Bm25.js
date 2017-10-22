@@ -6,14 +6,16 @@ const vsmObj = require("./vec_space/vec_space.js");
 module.exports = (function()
 {
 	//CONSTRUCTOR
-	var Bm25 = function(corpusMatr)
+	var Bm25 = function(corpusMatr, K=1.6, B=0.75)
 	{
 		let vecSpaceObj = vsmObj(corpusMatr);
 		this.docLens = vecSpaceObj.docLens;
 		this.docs = vecSpaceObj.docs;
 		this.idfMap = memoizeIdf(this.docs);
 		this.terms = Object.keys(this.idfMap);
-	}
+		this.K = K;
+		this.B = B;
+	};
 
 	//METHODS
 	Bm25.prototype.buildRow = function(docIdx)
@@ -24,7 +26,7 @@ module.exports = (function()
 														let docLen = this.docLens[docIdx];
 														let tf = this.docs[docIdx][term] || 0;
 														let idf = this.idfMap[term];
-														return bm25formula(tf, idf, docLen);
+														return bm25formula(tf, idf, docLen, this.K, this.B);
 													}, this);
 
  	};
