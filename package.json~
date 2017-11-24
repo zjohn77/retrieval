@@ -1,6 +1,6 @@
 {
-  "name": "bm25ranking",
-  "version": "0.1.0",
+  "name": "retrieval",
+  "version": "1.1.0",
   "description": "Ranks text via the Okapi BM25 ranking function.",
   "main": "index.js",
   "directories": {
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/zjohn77/bm25ranking#readme",
   "dependencies": {
+    "libxmljs": "^0.18.7",
     "lodash": "^4.17.4"
   }
 }
