@@ -1,1 +1,1 @@
-module.exports = require('./src/bm25nlp.js');  
+module.exports = require('./src/Retrieval.js');  
