@@ -21,8 +21,11 @@ module.exports = (function(){
       this.docIndex = math.sparse(bm25.buildMatr(), 'number');
    	};
 
-  	Retrieval.prototype.search = function(query={})	{
-      console.log(this.docIndex);
+  	Retrieval.prototype.search = function(query = '')	{
+      
+      // console.log(this.docIndex);
+      // var b = math.multiply(a, a);
+
   	};
 
     return Retrieval;
