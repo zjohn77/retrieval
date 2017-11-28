@@ -3,39 +3,50 @@ const chunkFilterStem = require('./nlp/chunk_filter_stem.js');
 const Bm25 = require('./Bm25/Bm25.js');
 const math = require('mathjs');
 const reverseIndex = require('./util/reverse_index.js');
+var _ = require('lodash');
 
-module.exports = (function(){
+module.exports = (function() {
   	//CONSTRUCTOR
   	var Retrieval = function(K=1.6, B=0.75)	{
     		this.K = K;
     		this.B = B;
         this.docIndex = {};
         this.termIndex = {};
+        this.queryVector = {};
   	};
 
   	//METHODS
   	Retrieval.prototype.index = function(docArray) {
         // Convert the document list to a sparse matrix index.
         let bm25 = new Bm25(corpusMatr = docArray.map(chunkFilterStem),
-                                K = this.K,
-                                B = this.B);
-        // creates a sparse matrix with initial data, number datatype.
-        // this.docIndex = math.sparse(bm25.buildMatr(), 'number');
+                            K = this.K,
+                            B = this.B);
 
-        // this.termIndex = reverseIndex(bm25.getTerms());
-        // console.log(this.termIndex['mozart']);
+        // Creates a sparse matrix with initial data; number datatype.
+        this.docIndex = math.sparse(bm25.buildMatr(), 'number');
+
+        // Creates a reverse index for fast keyword search.
+        this.termIndex = reverseIndex(bm25.getTerms());
    	};
 
   	Retrieval.prototype.search = function(query = 'Piano Concerto')	{
-        // let stems = chunkFilterStem(query);
-        var m1 = math.eye(2, 2, 'sparse');
-        var m2 = math.zeros(2, 3, 'sparse');
-        m2.set([0, 1], 5);
-        var b = math.multiply(m1, m2);
-        console.log(b);
+        // STEP 1: Creates a binary vector based on termIndex.
+        // This vector is 1 when element = query keyword, and 0 otherwise.
+        this.queryVector = math.zeros(_.size(this.termIndex), 1, 'sparse');//Initialize sparse vector.
 
-        // console.log(  m.get([1, 0]));
-        // var b = math.multiply(a, a);
+        chunkFilterStem(query)
+          .map(function(word){
+              return this.termIndex[word];
+          }, this)
+          .forEach(function(position){
+              this.queryVector.set([position, 0], 1);
+          }, this);
+
+        // STEP 2: Multiply the term weighted matrix by the query vector.
+        // The resulting product is the vector of document scores.
+        let prod = math.multiply(this.docIndex, this.queryVector);
+
+        console.log(prod);
   	};
 
     return Retrieval;
