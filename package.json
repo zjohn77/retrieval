@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/zjohn77/retrieval#readme",
   "dependencies": {
+    "heap": "^0.2.6",
     "libxmljs": "^0.18.7",
     "lodash": "^4.17.4",
     "mathjs": "^3.17.0"
