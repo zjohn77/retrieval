@@ -7,11 +7,12 @@ const _ = require('lodash');
 // module.exports = function(arr) {
 //   return _.zipObject(arr, _.range(arr.length));
 // };
+// _asInt(value);
 
-module.exports = function(arr, unique = false) {
-    let inverted = unique ? _.invert(arr) : _.invertBy(arr);
 
-    return _.mapValues(inverted, function(value) {
-        return parseInt(value, 10);
-      });
+module.exports = function(arr, transform) {
+    let invObj = _.invertBy(arr);
+    return _.mapValues(invObj, function(value){
+        transform(value);
+    });
 };

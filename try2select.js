@@ -2,9 +2,6 @@ var Heap = require('heap');
 var _ = require('lodash');
 
 let arr = ['c', 'b', 'a'];
-
-console.log(invObj);
-
 let arr2 = [70, 6, 6, 4];
 let inverted = _.invertBy(arr2);
 // console.log(inverted);
