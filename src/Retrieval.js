@@ -2,7 +2,7 @@
 const chunkFilterStem = require('./nlp/chunk_filter_stem.js');
 const Bm25 = require('./Bm25/Bm25.js');
 const math = require('mathjs');
-const reverseIndex = require('./util/reverse_index.js');
+// const reverseIndex = require('./util/reverse_index.js');
 var _ = require('lodash');
 
 module.exports = (function() {
@@ -26,7 +26,7 @@ module.exports = (function() {
         this.docIndex = math.sparse(bm25.buildMatr(), 'number');
 
         // Creates a reverse index for fast keyword search.
-        this.termIndex = _.invert(bm25.getTerms());
+        this.termIndex = bm25.getTerms();
    	};
 
   	Retrieval.prototype.search = function(query = 'Piano Concerto')	{

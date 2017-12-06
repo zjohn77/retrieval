@@ -2,6 +2,8 @@
 const bm25formula = require("./bm25formula/bm25formula.js");
 const idfMap = require("./idf_map/idf_map.js");
 const vecSpace = require("./vec_space/vec_space.js");
+const asInt = require('../util/as_int.js');
+const reverseIndex = require('../util/reverse_index.js');
 
 module.exports = (function() {
 		//CONSTRUCTOR
@@ -34,9 +36,9 @@ module.exports = (function() {
 				return bmMatr;
 		};
 
+		//return the inverted index obj based on the array of unique terms
 		Bm25.prototype.getTerms = function() {
-			//return the inverted index obj based on the array of unique terms
-				return this.terms;
+				return reverseIndex(this.terms, asInt);
 		};
 
 		return Bm25;
