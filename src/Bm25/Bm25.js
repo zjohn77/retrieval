@@ -35,6 +35,7 @@ module.exports = (function() {
 		};
 
 		Bm25.prototype.getTerms = function() {
+			//return the inverted index obj based on the array of unique terms
 				return this.terms;
 		};
 

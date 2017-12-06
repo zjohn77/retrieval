@@ -26,7 +26,7 @@ module.exports = (function() {
         this.docIndex = math.sparse(bm25.buildMatr(), 'number');
 
         // Creates a reverse index for fast keyword search.
-        this.termIndex = reverseIndex(bm25.getTerms());
+        this.termIndex = _.invert(bm25.getTerms());
    	};
 
   	Retrieval.prototype.search = function(query = 'Piano Concerto')	{

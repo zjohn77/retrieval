@@ -1,9 +1,16 @@
 var Heap = require('heap');
 var _ = require('lodash');
 
-let arr = [7, 6, 6, 5];
-let invObj = _.invertBy(arr);
+let arr = ['c', 'b', 'a'];
 
-let K = Object.keys(invObj);
-let highest = Heap.nlargest(K, 2);
-console.log(invObj[highest[1]])
+console.log(invObj);
+
+let arr2 = [70, 6, 6, 4];
+let inverted = _.invertBy(arr2);
+// console.log(inverted);
+
+let K = Object.keys(inverted);
+console.log(K);
+let highest = Heap.nlargest(K, 1);
+console.log(highest);
+// console.log(inverted[highest[1]]);
