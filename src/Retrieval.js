@@ -2,7 +2,6 @@
 const chunkFilterStem = require('./nlp/chunk_filter_stem.js');
 const Bm25 = require('./Bm25/Bm25.js');
 const math = require('mathjs');
-// const reverseIndex = require('./util/reverse_index.js');
 var _ = require('lodash');
 
 module.exports = (function() {
