@@ -1,6 +1,7 @@
 const assert = require('assert');
 const asInt = require('../src/util/as_int.js');
 const reverseIndex = require('../src/util/reverse_index.js');
+const initArray = require('../src/util/init_array.js');
 
 describe('Test all fcns in the util folder', function() {
     before(function() {
@@ -20,4 +21,10 @@ describe('Test all fcns in the util folder', function() {
     it('should invert an array & handle non-unique keys', function(){
         assert.deepStrictEqual(invertedIndex, reverseIndex(casted2int, asInt));
     });
+
+    it('should create an array based on the length & initial value passed in', function(){
+        assert.deepStrictEqual([1, 1, 1, 1], initArray(4, 1));
+    });
+
+    // Add the test for util/make_zeros.js
 });
