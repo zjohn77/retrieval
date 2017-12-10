@@ -7,6 +7,6 @@ const termLookup = require('../util/term_lookup.js');
 module.exports = function(query, termIndex) {
     let _terms = chunkFilterStem(query);
     let _indexPositions = termLookup(_terms, termIndex);
-    let _weightsAtPositions = initArray(_indexPositions, 1);
+    let _weightsAtPositions = initArray(_indexPositions.length, 1);
     return _.zipObject(_indexPositions, _weightsAtPositions);
 };
