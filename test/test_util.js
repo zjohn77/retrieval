@@ -36,5 +36,5 @@ describe('Test all fcns in the util folder', function() {
     it('should create a mathjs sparse vector object', function(){
         assert.deepEqual(sparseVector, makeZeros(invertedIndex).toJSON());
     });
-    // Add the test for util/make_zeros.js
+    // to add unit test for util/term_lookup.js
 });

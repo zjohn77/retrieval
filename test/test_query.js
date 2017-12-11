@@ -12,6 +12,4 @@ describe('Test all fcns in the util folder', function() {
     it('should cast strings to integers', function(){
         assert.deepEqual({'5': 1, '8': 1}, locateKeywords(que, invIndex));
     });
-
-    // Add the test for util/make_zeros.js
 });

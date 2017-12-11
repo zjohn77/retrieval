@@ -1,3 +1,6 @@
+/**
+ * Looks up a query (as a string) in a reverse index.
+ */
 const _ = require('lodash');
 const chunkFilterStem = require('../nlp/chunk_filter_stem.js');
 const initArray = require('../util/init_array.js');

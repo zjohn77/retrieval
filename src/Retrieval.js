@@ -29,23 +29,9 @@ module.exports = (function() {
    	};
 
   	Retrieval.prototype.search = function(query = 'Piano Concerto')	{
-        // STEP 1: Creates a binary vector based on termIndex.
-        // This vector is 1 when element = query keyword, and 0 otherwise.
-        this.queryVector = math.zeros(_.size(this.termIndex), 1, 'sparse');//Initialize sparse vector.
-
-        chunkFilterStem(query)
-          .map(function(word){
-              return this.termIndex[word];
-          }, this)
-          .forEach(function(position){
-              this.queryVector.set([position, 0], 1);
-          }, this);
-
         // STEP 2: Multiply the term weighted matrix by the query vector.
         // The resulting product is the vector of document scores.
         let prod = math.multiply(this.docIndex, this.queryVector);
-
-        console.log(prod);
   	};
 
     return Retrieval;
