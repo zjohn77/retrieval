@@ -29,10 +29,15 @@ module.exports = (function() {
    	};
 
   	Retrieval.prototype.search = function(query = 'Piano Concerto')	{
-        // STEP 2: Multiply the term weighted matrix by the query vector.
+        // STEP 1: Parse the query string.
+        chunkFilterStem(query);
+        // STEP 2: Find the keyword locations in the index.
+        queryVector = setEntry(locateKeywords(keywords));
+        // STEP 3: Multiply the term weighted matrix by the query vector.
         // The resulting product is the vector of document scores.
-        let prod = math.multiply(this.docIndex, this.queryVector);
-  	};
+        let prod = math.multiply(this.docIndex, queryVector);
+        // STEP 4: Extract the highest scores using the heap.
+        // STEP 5: Retrieve the best match documents.
 
     return Retrieval;
 })();
