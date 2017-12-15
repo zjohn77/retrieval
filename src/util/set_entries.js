@@ -3,9 +3,9 @@
 const makeZeros = require('./make_zeros.js');
 require("babel-polyfill");
 
-module.exports = function setSeveral(matrix, locatValueDict) {
+module.exports = function(vector, locatValueDict) {
     for(const [location, value] of Object.entries(locatValueDict)) {
-        matrix.set([parseInt(location, 10), 0], value);
+        vector.set([parseInt(location, 10), 0], value);
     }
-    return matrix;
+    return vector;
 }

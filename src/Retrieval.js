@@ -1,8 +1,9 @@
 /*DOCSTRING Indexes an array of texts based on bm25 similarity.*/
-const chunkFilterStem = require('./nlp/chunk_filter_stem.js');
-const Bm25 = require('./Bm25/Bm25.js');
 const math = require('mathjs');
-var _ = require('lodash');
+const Bm25 = require('./Bm25/Bm25.js');
+const query2vec = require('./query/query2vec.js');
+const chunkFilterStem = require('./nlp/chunk_filter_stem.js');
+const Heap = require('heap');
 
 module.exports = (function() {
   	//CONSTRUCTOR
@@ -29,15 +30,17 @@ module.exports = (function() {
    	};
 
   	Retrieval.prototype.search = function(query = 'Piano Concerto')	{
-        // STEP 1: Parse the query string.
-        chunkFilterStem(query);
-        // STEP 2: Find the keyword locations in the index.
-        queryVector = setEntry(locateKeywords(keywords));
-        // STEP 3: Multiply the term weighted matrix by the query vector.
+        // STEP 1: Maps a query string to the vector space of the document collection.
+        let queryVector = query2vec(query, this.termIndex);
+
+        // STEP 2: Multiply the term weighted matrix by the query vector.
         // The resulting product is the vector of document scores.
-        let prod = math.multiply(this.docIndex, queryVector);
+        let docScores = math.multiply(this.docIndex, queryVector);
+        return docScores;
         // STEP 4: Extract the highest scores using the heap.
+
         // STEP 5: Retrieve the best match documents.
+    };
 
     return Retrieval;
 })();

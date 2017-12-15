@@ -2,7 +2,6 @@
  * Initialize sparse vector.
  */
 const math = require('mathjs');
-const _ = require('lodash');
 
 module.exports = function(len) {
     return math.zeros(len, 1, 'sparse');
