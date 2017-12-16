@@ -3,7 +3,7 @@ const math = require('mathjs');
 const Bm25 = require('./Bm25/Bm25.js');
 const query2vec = require('./query/query2vec.js');
 const chunkFilterStem = require('./nlp/chunk_filter_stem.js');
-const Heap = require('heap');
+const nArgmax = require('./util/n_argmax.js');
 
 module.exports = (function() {
   	//CONSTRUCTOR
@@ -36,8 +36,10 @@ module.exports = (function() {
         // STEP 2: Multiply the term weighted matrix by the query vector.
         // The resulting product is the vector of document scores.
         let docScores = math.multiply(this.docIndex, queryVector);
-        return docScores;
+        // return docScores;
+
         // STEP 4: Extract the highest scores using the heap.
+        return nArgmax(docScores, 10)
 
         // STEP 5: Retrieve the best match documents.
     };
