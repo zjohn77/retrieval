@@ -1,9 +1,11 @@
 /*DOCSTRING Indexes an array of texts based on bm25 similarity.*/
+const _ = require('lodash');
 const math = require('mathjs');
 const Bm25 = require('./Bm25/Bm25.js');
 const query2vec = require('./query/query2vec.js');
 const chunkFilterStem = require('./nlp/chunk_filter_stem.js');
 const nArgmax = require('./util/n_argmax.js');
+const Heap = require('heap');
 
 module.exports = (function() {
   	//CONSTRUCTOR
@@ -31,22 +33,27 @@ module.exports = (function() {
         this.termIndex = bm25.getTerms();
    	};
 
-  	Retrieval.prototype.search = function(query = 'Piano Concerto')	{
+  	Retrieval.prototype.search = function(query_ = 'Piano Concerto')	{
         // STEP 1: Maps a query string to the vector space of the document collection.
-        let _queryVector = query2vec(query, this.termIndex);
+        let queryVector = query2vec(query_, this.termIndex);
 
         // STEP 2: Multiply the term weighted matrix by the query vector.
         // The resulting product is the vector of document scores.
-        let _docScores = math.multiply(this.docIndex, _queryVector);
-        // return docScores;
+        let docScores = math.multiply(this.docIndex, queryVector);
+        let docScoresArr = [].concat(...docScores.valueOf());
 
-        // STEP 4: Extract the highest scores using the heap.
-        nArgmax(_docScores)
+        // STEP 3: Extract the highest scores using the heap.
+        // let scoreIndex = _.invertBy(docScoresArr);
+        // let highScores = Heap.nlargest(docScoresArr);
+        let highScores = nArgmax(docScoresArr);
 
-
+        // let indexArr = highScores.reduce(function(prevScore, curScore){
+        //     return scoreIndex[prevScore.toString()].concat(scoreIndex[curScore.toString()]);
+        // });
+        // return indexArr;
 
         // STEP 5: Retrieve the best match documents.
-        this.docArray
+        // this.docArray
     };
 
     return Retrieval;
