@@ -4,8 +4,7 @@ const math = require('mathjs');
 const Bm25 = require('./Bm25/Bm25.js');
 const query2vec = require('./query/query2vec.js');
 const chunkFilterStem = require('./nlp/chunk_filter_stem.js');
-const nArgmax = require('./util/n_argmax.js');
-const sortKeys = require('sort-keys');
+const topIndices = require('./score_selection/top_indices.js');
 
 module.exports = (function() {
   	//CONSTRUCTOR
@@ -43,12 +42,7 @@ module.exports = (function() {
                                                    queryVector
                                                   ).valueOf()
                                  );
-
-        // STEP 3: Extract the highest scores using the heap.
-        let getTopIndices = _.flow([nArgmax, sortKeys, Object.values]);
-        return [].concat(...getTopIndices(docScores)
-                            .reverse()
-                        );
+        // STEP 3:
 
 
         // STEP 5: Retrieve the best match documents.

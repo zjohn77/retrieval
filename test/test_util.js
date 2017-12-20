@@ -25,13 +25,7 @@ describe('Test all fcns in the util folder', function() {
         assert.deepEqual('[[0], [0], [0]]', makeZeros(3).toString());
     });
 
-    it('4. nArgmax should find the n-biggest elements & their indices', function(){
-        let argmaxObj = { '6': ['1', '2'],
-                         '70': ['0'] };
-        assert.deepEqual(argmaxObj, nArgmax([70, 6, 6, 4], n=2));
-    });
-
-    it('5. reverseIndex should invert an array & handle non-unique keys', function(){
+    it('4. reverseIndex should invert an array & handle non-unique keys', function(){
         let invertedIndex = { '0': [ 0 ],
                               '3': [ 1 ],
                               '6': [ 2 ],
@@ -40,14 +34,14 @@ describe('Test all fcns in the util folder', function() {
         assert.deepEqual(invertedIndex, reverseIndex(casted2int, asInt));
     });
 
-    it('6. setEntries should set the entries of a mathjs vector to given values', function(){
+    it('5. setEntries should set the entries of a mathjs vector to given values', function(){
         setEntryTester = makeZeros(3);
         setEntries(setEntryTester, {'0': 99, '2': 111});
         assert.equal('[[99], [0], [111]]', setEntryTester.toString());
     });
 
     // to add unit test for util/term_lookup.js
-    it('7. termLookup should ', function(){
+    it('6. termLookup should ', function(){
         let queryArr = ['a', 'b'];
         let index = {'a': 3,
                      'b': 5,
