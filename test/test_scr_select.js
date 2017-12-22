@@ -17,6 +17,6 @@ describe('Test all fcns in the util folder', function() {
 
     it('topIndices should find the indices of the n-biggest elements',
       function() {
-        assert.deepEqual([['0'], ['1', '2']], topIndices(ARR, TOP_N));
+        assert.deepEqual(['0', '1', '2'], topIndices(ARR, TOP_N));
     });
 });

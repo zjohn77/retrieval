@@ -42,10 +42,10 @@ module.exports = (function() {
                                                    queryVector
                                                   ).valueOf()
                                  );
-        // STEP 3:
+        // STEP 3: Retrieve the 10 highest scoring documents.
+        topIndices(ARR)[:10]
 
-
-        // STEP 5: Retrieve the best match documents.
+        // STEP 4: Retrieve the best match documents.
         // this.docArray
     };
 
