@@ -2,7 +2,7 @@ const assert = require('assert');
 const nArgmax = require('../src/score_selection/lib/n_argmax.js');
 const topIndices = require('../src/score_selection/top_indices.js');
 
-describe('Test all fcns in the util folder', function() {
+describe("fcns for finding the 10 highest values of an array", function() {
     before(function() {
         ARR = [70, 6, 6, 4];
         TOP_N = 2;
