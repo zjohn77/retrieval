@@ -4,9 +4,13 @@
  */
 const nArgmax = require('./lib/n_argmax.js');
 const sortKeys = require('sort-keys');
+const asInt = require('../util/as_int.js');
 
-module.exports = function(arr, n=10) {
+module.exports = function(arr, n=10, asStr=false) {
     let sortedObj = sortKeys(nArgmax(arr, n));
-    return [].concat(...Object.values(sortedObj).reverse()
+    let indices = [].concat(...Object.values(sortedObj).reverse()
                     );
+    if(asStr)
+        return indices;
+    return asInt(indices);
 };

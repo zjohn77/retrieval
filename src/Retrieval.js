@@ -1,4 +1,8 @@
-/*DOCSTRING Indexes an array of texts based on bm25 similarity.*/
+/*
+* Specifies a class whose primary functionality is taking an array of texts,
+* parses it using natural language processing, indexes it via Okapi-BM25 representation,
+* and enables natural language search of this collection of documents.
+*/
 const _ = require('lodash');
 const math = require('mathjs');
 const Bm25 = require('./Bm25/Bm25.js');
@@ -42,11 +46,14 @@ module.exports = (function() {
                                                    queryVector
                                                   ).valueOf()
                                  );
-        // STEP 3: Retrieve the 10 highest scoring documents.
-        topIndices(ARR)[:10]
 
-        // STEP 4: Retrieve the best match documents.
-        // this.docArray
+        // STEP 3: Retrieve the 10 highest scoring document indices.
+        let top10Indices = topIndices(docScores).slice(0, 10);
+
+        // STEP 4: Retrieve the documents best matching the query.
+        top10Indices.forEach(function(idx) {
+            console.log(this.docArray[idx]);
+        }, this);
     };
 
     return Retrieval;
