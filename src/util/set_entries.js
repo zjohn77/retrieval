@@ -1,7 +1,9 @@
-// STEP 1: Creates a binary vector based on termIndex.
-// This vector is 1 when element = query keyword, and 0 otherwise.
+/**
+ * @exports {Function} that uses a reverse-index of the terms to
+ * create a binary vector (1 if is keyword, and 0 otherwise).
+ */
 const makeZeros = require('./make_zeros.js');
-require("babel-polyfill");
+// require("babel-polyfill");
 
 module.exports = function(vector, locatValueDict) {
     for(const [location, value] of Object.entries(locatValueDict)) {
