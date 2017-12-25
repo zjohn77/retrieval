@@ -36,7 +36,7 @@ module.exports = (function() {
         this.termIndex = bm25.getTerms();
    	};
 
-  	Retrieval.prototype.search = function(query_ = 'Piano Concerto')	{
+  	Retrieval.prototype.search = function(query_)	{
         // STEP 1: Maps a query string to the vector space of the document collection.
         let queryVector = query2vec(query_, this.termIndex);
 
