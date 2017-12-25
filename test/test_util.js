@@ -2,9 +2,8 @@ const assert = require('assert');
 const asInt = require('../src/util/as_int.js');
 const initArray = require('../src/util/init_array.js');
 const makeZeros = require('../src/util/make_zeros.js');
-const setEntries = require('../src/util/set_entries.js');
-const nArgmax = require('../src/util/n_argmax.js');
 const reverseIndex = require('../src/util/reverse_index.js');
+const setEntries = require('../src/util/set_entries.js');
 const termLookup = require('../src/util/term_lookup.js');
 
 describe('Test all fcns in the util folder', function() {

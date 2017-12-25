@@ -1,13 +1,13 @@
 {
   "name": "retrieval",
-  "version": "1.2.1",
-  "description": "Full text search written in JavaScript!",
+  "version": "1.3.0",
+  "description": "Natural language full text search written in JavaScript!",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/test_bm25ranking.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
