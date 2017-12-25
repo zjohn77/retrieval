@@ -7,21 +7,20 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/test_bm25ranking.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zjohn77/retrieval.git"
   },
   "keywords": [
-    "okapi",
-    "bm25",
+    "okapi bm25",
     "tfidf",
     "tf-idf",
-    "term weighting",
-    "vector space model",
-    "idf",
-    "inverse document frequency"
+    "search engine",
+    "full text search",
+    "natural language search",
+    "information retrieval"
   ],
   "author": "John Jung",
   "license": "MIT",
@@ -32,7 +31,6 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "heap": "^0.2.6",
-    "libxmljs": "^0.18.7",
     "lodash": "^4.17.4",
     "mathjs": "^3.17.0",
     "sort-keys": "^2.0.0"

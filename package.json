@@ -1,6 +1,6 @@
 {
   "name": "retrieval",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Natural language full text search written in JavaScript!",
   "main": "index.js",
   "directories": {
@@ -14,14 +14,13 @@
     "url": "git+https://github.com/zjohn77/retrieval.git"
   },
   "keywords": [
-    "okapi",
-    "bm25",
+    "okapi bm25",
     "tfidf",
     "tf-idf",
-    "term weighting",
-    "vector space model",
-    "idf",
-    "inverse document frequency"
+    "search engine",
+    "full text search",
+    "natural language search",
+    "information retrieval"
   ],
   "author": "John Jung",
   "license": "MIT",
@@ -32,7 +31,6 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "heap": "^0.2.6",
-    "libxmljs": "^0.18.7",
     "lodash": "^4.17.4",
     "mathjs": "^3.17.0",
     "sort-keys": "^2.0.0"
