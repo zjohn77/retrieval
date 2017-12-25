@@ -4,9 +4,9 @@
  */
 const _ = require('lodash');
 
-module.exports = function(arr, transform) {
-    let invObj = _.invertBy(arr);
-    return _.mapValues(invObj, function(value){
-        return transform(value);
-    });
+module.exports = function(arr_, transform_) {
+    return _.mapValues(_.invertBy(arr_),
+                      function(value){
+                          return transform_(value);
+                      });
 };

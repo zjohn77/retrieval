@@ -3,7 +3,6 @@
  * create a binary vector (1 if is keyword, and 0 otherwise).
  */
 const makeZeros = require('./make_zeros.js');
-// require("babel-polyfill");
 
 module.exports = function(vector, locatValueDict) {
     for(const [location, value] of Object.entries(locatValueDict)) {

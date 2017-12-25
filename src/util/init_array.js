@@ -5,6 +5,6 @@
  */
 const _ = require('lodash');
 
-module.exports = function(len, value = 0) {
-    return _.fill(Array(len), value);
+module.exports = function(len_, value_=0) {
+    return _.fill(Array(len_), value_);
 };

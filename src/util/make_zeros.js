@@ -5,6 +5,6 @@
  */
 const math = require('mathjs');
 
-module.exports = function(len) {
-    return math.zeros(len, 1, 'sparse');
+module.exports = function(len_) {
+    return math.zeros(len_, 1, 'sparse');
 };
