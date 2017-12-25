@@ -17,8 +17,7 @@ module.exports = (function(){
 	  return camelCaseSplit.match(/\S+/g) || [];
 	};
 
-	return function(sentence)
-           {
+	return function(sentence) {
             var onlyLetters = keepOnlyLetters(sentence);
             var tokens = getChunks(onlyLetters);
             return tokens;

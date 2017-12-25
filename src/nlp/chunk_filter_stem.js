@@ -5,8 +5,7 @@ const porter = require("./lib/stem_porter2.js");
 /**
  * Chunk, filter, then stem, in that order.
  */
-module.exports = function(sentence)
-{
+module.exports = function(sentence) {
   var lower = sentence.toLowerCase();//maps a string to another string
   var tokens = chunker(lower);//maps a string to an array
   var noStopwords = removeStopwords(tokens);//maps an array to another array

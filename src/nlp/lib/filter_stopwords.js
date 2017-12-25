@@ -3,8 +3,7 @@
  * @param {array} arrWords - array of words (tokens)
  * @return {array} array of words (tokens) with stopwords excluded
  */
-var removeStopwords = function(arrWords)
-{
+var removeStopwords = function(arrWords) {
   // var arrWords = getTokens(sentence.toLowerCase());
   return arrWords.filter(word => !removeStopwords.stopwords.has(word)); // take set difference.
 }

@@ -3,8 +3,7 @@
 const tfMaps = require("./lib/tf.js");
 const relDocLengths = require("./lib/doc_len.js");
 
-module.exports = (function()
-{
+module.exports = (function() {
   return function(corpusMatr)
 		{
 			return {docLens: relDocLengths(corpusMatr),

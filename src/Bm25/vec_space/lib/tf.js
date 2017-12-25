@@ -1,5 +1,4 @@
-var termCountVectorizerModule = (function()
-{
+var termCountVectorizerModule = (function() {
   /**
    * 1. Callback fcn taking an array (i.e. document) element; tallies how many times each term (element) is
    * found in document.
@@ -13,11 +12,9 @@ var termCountVectorizerModule = (function()
     }
     return runningCountTable;
   }
-
-  return function(corpus)//convert an input corpus to an array of term-freq dicts
-        {
-          return corpus.map(function(document)
-          {
+  //convert an input corpus to an array of term-freq dicts
+  return function(corpus) {
+          return corpus.map(function(document) {
             return document.reduce(tallyTermFreq, {});
           });
         };

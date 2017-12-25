@@ -1,7 +1,6 @@
 /*DOCSTRING: Build an array of the relative length of each document in a corpus.*/
 var _ = require('lodash');
-module.exports = (function()
-{
+module.exports = (function() {
 	/**
 	 * For a given matrix, find each row's length, and return these lengths as an array.
 	 */
