@@ -1,6 +1,6 @@
 {
   "name": "retrieval",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Natural language full text search written in JavaScript!",
   "main": "index.js",
   "directories": {
