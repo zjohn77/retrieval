@@ -9,13 +9,13 @@ Implements full text search by indexing an input array of texts using the Okapi 
 This function computes a BM25 document-term matrix, and stores this matrix as an array of arrays. Function's main parameter is a text document collection in the form of an array of strings--each text document here is a string.
 
 ## 3. Install:
-```shell
+```bash
 npm install retrieval
 ```
 
 ## 4. Usage:
 
-```python
+```js
 const docs = require("./music-collection"); //load sample documents
 const Retrieval = require("../../retrieval"); //import module
 
