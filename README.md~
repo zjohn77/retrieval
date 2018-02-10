@@ -2,7 +2,7 @@
 
 ![alt text](diagram.png "Project Diagram")
 
-# 1. The Point of this Project:
+# 1. The Goal of this Project:
 Implements full text search by indexing an input array of texts using the Okapi BM25 similarity.
 
 # 2. The Design:
@@ -12,3 +12,4 @@ This function computes a BM25 document-term matrix, and stores this matrix as an
 npm install retrieval
 
 # 4. Usage:
+See the demo folder.
