@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/zjohn77/retrieval.svg?branch=master)](https://travis-ci.org/zjohn77/retrieval)
 
+![alt text](diagram.png "Project Diagram")
+
 # 1. The Point of this Project:
 Implements full text search by indexing an input array of texts using the Okapi BM25 similarity.
 
