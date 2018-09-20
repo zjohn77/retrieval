@@ -36,7 +36,7 @@ module.exports = (function() {
         this.termIndex = bm25.getTerms();
    	};
 
-  	Retrieval.prototype.search = function(query_)	{
+  	Retrieval.prototype.search = function(query_, N=10)	{
         // STEP 1: Maps a query string to the vector space of the document collection.
         let queryVector = query2vec(query_, this.termIndex);
 
@@ -48,12 +48,10 @@ module.exports = (function() {
                                  );
 
         // STEP 3: Retrieve the 10 highest scoring document indices.
-        let top10Indices = topIndices(docScores).slice(0, 10);
+        let topNIndices = topIndices(docScores).slice(0, N);
 
         // STEP 4: Retrieve the documents best matching the query.
-        top10Indices.forEach(function(idx) {
-            console.log(this.docArray[idx]);
-        }, this);
+        return topNIndices.map((idx) => this.docArray[idx])
     };
 
     return Retrieval;
