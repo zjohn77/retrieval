@@ -35,5 +35,6 @@ let rt = new Retrieval(K=2, B=0.75);
 rt.index(docs);
 
 //3rd step: search.
-rt.search('theme and variations');
+rt.search('theme and variations'); // default: top 10 results
+rt.search('theme and variations', 5); // top 5 results
 ```

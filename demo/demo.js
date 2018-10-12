@@ -8,4 +8,7 @@ let rt = new Retrieval(K=2, B=0.75);
 rt.index(docs);
 
 //3rd step: search.
-rt.search('theme and variations');
+let results = rt.search('theme and variations');
+
+console.log('Top 10 Results:')
+results.map((result) => console.log(result));
