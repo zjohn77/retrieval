@@ -1,9 +1,9 @@
 var termCountVectorizerModule = (function() {
   /**
-   * 1. Callback fcn taking an array (i.e. document) element; tallies how many times each term (element) is
-   * found in document.
+   * 1. Callback fcn taking an array (i.e. document) element; 
+   * tallies how many times each term (element) is found in document.
    */
-  function tallyTermFreq(runningCountTable, curTerm){
+  function tallyTermFreq(runningCountTable, curTerm) {
     if(curTerm in runningCountTable){
       runningCountTable[curTerm]++;// current term is found in collection of previous terms.
     }
@@ -19,4 +19,5 @@ var termCountVectorizerModule = (function() {
           });
         };
 })();
+
 module.exports = termCountVectorizerModule;

@@ -1,5 +1,7 @@
-/*DOCSTRING
-Functions that chunk text in 2 steps: strip non-letters first, then chunk into unigrams.*/
+/*
+ * Functions that chunk text in 2 steps: strip non-letters first, 
+ * then chunk into unigrams.
+ */
 
 module.exports = (function(){
 	/**

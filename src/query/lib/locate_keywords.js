@@ -1,4 +1,4 @@
-/**
+/*
  * Looks up a query (as a string) in a reverse index.
  */
 const _ = require('lodash');

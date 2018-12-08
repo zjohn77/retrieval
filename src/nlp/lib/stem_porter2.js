@@ -1,5 +1,6 @@
-/* Javascript implementation of the Porter2 Stemmer */
-/* http://snowball.tartarus.org/algorithms/english/stemmer.html */
+/* Javascript implementation of the Porter2 Stemmer
+ * http://snowball.tartarus.org/algorithms/english/stemmer.html 
+ */
 
 (function (module) {
   var VOWELS = ['a', 'e', 'i', 'o', 'u', 'y'],

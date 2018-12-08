@@ -1,8 +1,9 @@
 /*
-* Specifies a class whose primary functionality is taking an array of texts,
-* parses it using natural language processing, indexes it via Okapi-BM25 representation,
-* and enables natural language search of this collection of documents.
-*/
+ * Specifies a class whose primary functionality is taking an array of texts,
+ * parses it using natural language processing, indexes it via Okapi-BM25 
+ * representation, and enables natural language search of this collection of 
+ * documents.
+ */
 const _ = require('lodash');
 const math = require('mathjs');
 const Bm25 = require('./Bm25/Bm25.js');
@@ -12,7 +13,7 @@ const topIndices = require('./score_selection/top_indices.js');
 
 module.exports = (function() {
   	//CONSTRUCTOR
-  	var Retrieval = function(K=1.6, B=0.75)	{
+  	var Retrieval = function(K=1.6, B=0.75) {
         this.docArray = [];
     		this.K = K;
     		this.B = B;
@@ -36,7 +37,7 @@ module.exports = (function() {
         this.termIndex = bm25.getTerms();
    	};
 
-  	Retrieval.prototype.search = function(query_, N=10)	{
+  	Retrieval.prototype.search = function(query_, N=10) {
         // STEP 1: Maps a query string to the vector space of the document collection.
         let queryVector = query2vec(query_, this.termIndex);
 

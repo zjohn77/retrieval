@@ -1,6 +1,6 @@
-/**
- * Use the heap to select the indices for the 10 highest bm25 scores in
- * O(N * log(10)) computations.
+/*
+ * Use the heap to select the indices for the k (=10 here) highest bm25 scores 
+ * in O(N * log(k)) computations.
  */
 const nArgmax = require('./lib/n_argmax.js');
 const sortKeys = require('sort-keys');

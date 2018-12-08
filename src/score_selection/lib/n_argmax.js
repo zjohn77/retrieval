@@ -1,4 +1,4 @@
-/**
+/*
  * Find a given array's n-biggest values and their indexes (argmax).
  */
 const _ = require('lodash');

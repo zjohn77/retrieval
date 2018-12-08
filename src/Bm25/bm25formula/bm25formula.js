@@ -1,4 +1,4 @@
-/**
+/*
  * Function applying the BM25 formula to key parameters.
  */
 module.exports = (function() {

@@ -8,8 +8,9 @@ var removeStopwords = function(arrWords) {
   return arrWords.filter(word => !removeStopwords.stopwords.has(word)); // take set difference.
 }
 
-/**
- * 2. Stopwords list, built from lists including Stanford NLP, Journal of Machine Learning, etc.
+/*
+ * 2. Stopwords list, built from lists including Stanford NLP, 
+ * Journal of Machine Learning, and NLTK.
  */
 removeStopwords.stopwords = new Set(['page',
 // 'ca',

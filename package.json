@@ -1,17 +1,33 @@
 {
   "name": "retrieval",
-  "version": "1.3.5",
-  "description": "Natural language full text search written in JavaScript!",
+  "version": "1.4.0",
+  "description": "Full text search engine in js. Features BM25 ranking function that can be tuned.",
+  "author": "John Jung",
+  "license": "MIT",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "heap": "^0.2.6",
+    "lodash": "^4.17.11",
+    "mathjs": "^3.17.0",
+    "sort-keys": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zjohn77/retrieval.git"
+  },
+  "homepage": "https://github.com/zjohn77/retrieval#readme",
+  "bugs": {
+    "url": "https://github.com/zjohn77/retrieval/issues"
   },
   "keywords": [
     "okapi bm25",
@@ -20,21 +36,9 @@
     "search engine",
     "full text search",
     "natural language search",
-    "information retrieval"
-  ],
-  "author": "John Jung",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zjohn77/retrieval/issues"
-  },
-  "homepage": "https://github.com/zjohn77/retrieval#readme",
-  "dependencies": {
-    "heap": "^0.2.6",
-    "lodash": "^4.17.4",
-    "mathjs": "^3.17.0",
-    "sort-keys": "^2.0.0"
-  },
-  "devDependencies": {
-    "mocha": "^4.0.1"
-  }
+    "information retrieval",
+    "bm25",
+    "term weighting",
+    "vector space model"
+  ]
 }

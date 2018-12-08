@@ -23,7 +23,7 @@ npm install retrieval
 ```
 
 ## 5. Usage:
-
+The following example is based on demo.js found in the demo folder.
 ```js
 const docs = require("./music-collection"); //load sample documents
 const Retrieval = require("../../retrieval"); //import module
@@ -37,4 +37,11 @@ rt.index(docs);
 //3rd step: search.
 rt.search('theme and variations'); // default: top 10 results
 rt.search('theme and variations', 5); // top 5 results
+```
+
+## 6. Build upon it:
+```bash
+git clone https://github.com/zjohn77/retrieval.git
+cd retrieval
+npm install
 ```
