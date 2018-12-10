@@ -8,6 +8,9 @@ const locateKeywords = require('./lib/locate_keywords.js');
 const setEntries = require('../util/set_entries.js');
 
 module.exports = function(query_, termIndex_) {
-    return setEntries(makeZeros(_.size(termIndex_)),
-                      locateKeywords(query_, termIndex_));
+	zeroVec = makeZeros(_.size(termIndex_));
+	wordLocs = locateKeywords(query_, termIndex_);
+	return setEntries(zeroVec,
+							wordLocs
+						  );
 };

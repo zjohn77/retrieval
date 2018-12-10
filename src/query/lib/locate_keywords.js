@@ -12,6 +12,10 @@ module.exports = function(query_, termIndex_) {
     // Get the value for each key in a reverse-index; save it in an array.
     // Then, initialize an array of 0's based on the array above.
     let indexPositions = termLookup(terms, termIndex_)
+    if (indexPositions.length == 0) {
+        throw new Error('Term not found in index.');
+    }
+    
     let weightsAtPositions = initArray(indexPositions.length,
                                        1);
     return _.zipObject(indexPositions, weightsAtPositions);
