@@ -4,7 +4,6 @@
 const _ = require('lodash');
 const chunkFilterStem = require('../../nlp/chunk_filter_stem.js');
 const initArray = require('../../util/init_array.js');
-const makeZeros = require('../../util/make_zeros.js');
 const termLookup = require('../../util/term_lookup.js');
 
 module.exports = function(query_, termIndex_) {

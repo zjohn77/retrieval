@@ -41,7 +41,7 @@ module.exports = (function() {
 
 	//return the inverted index obj based on the array of unique terms
 	Bm25.prototype.getTerms = function() {
-			return reverseIndex(this.terms, asInt);
+		return reverseIndex(this.terms, asInt);
 	};
 
 	return Bm25;
