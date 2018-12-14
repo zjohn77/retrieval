@@ -1,0 +1,10 @@
+html
+   form(action='/', method='POST')
+      h3
+         | Query the quotes below using this search bar: 
+         input(type='text', name='results')
+      input(type='submit', value='Search')
+   h3 Famous Quotes:
+   ul
+      each elem in data
+         li= elem          

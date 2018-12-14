@@ -1,5 +1,18 @@
-const docs = require("./music-collection"); //load sample documents
-const Retrieval = require("../../retrieval"); //import module
+/*
+ * Demonstrates how to use the Retrieval module via 4 quick examples.
+ * Namely, 
+ * (1) search for 'theme and variations'; note that docs where both terms 
+ * appear are ranked higher
+ * (2) in 'opera browser', the word 'browser' doesn't belong to any document,
+ * so the search engine only returns documents with the word 'opera'
+ * (3) none of the words in 'does not exist' belong to any document, so
+ * the result looks empty
+ * (4) search for 'blues'; note that both singular and plural forms were found;
+ * also note that duplicate documents were found, which is fine because they
+ * exist in the document collection.
+ */
+const docs = require("./data/music-collection"); // load sample documents
+const Retrieval = require("../../../retrieval"); // import the search engine
 
 // 1st step: construct an object, feeding two parameters for bm25.
 let rt = new Retrieval(K=2, B=0.75);
@@ -34,8 +47,8 @@ results = rt.search('does not exist', 5);
 results.map(result => console.log(result));
 
 console.log("\n\n----------------------------------------------------------");
-console.log("Top 5 search results for the query 'blue':\n")
-results = rt.search('blue', 5);
+console.log("Top 5 search results for the query 'blues':\n")
+results = rt.search('blues', 5);
 results.map(result => console.log(result));
 // 09 - Weary Blues.flac
 // 09 - Weary Blues.flac
