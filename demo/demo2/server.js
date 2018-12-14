@@ -4,27 +4,22 @@
  * representation, and enables natural language search of this collection of 
  * documents.
  */
+const Retrieval = require("../../../retrieval"); // Import the search engine.
+let quotes = require("./data/quotes"); // Load sample documents.
 const express = require('express');
 const path = require('path');
-var quotes = require("./data/quotes"); // load sample documents
-const Retrieval = require("../../../retrieval"); // import the search engine
 
 // 1st step: construct an object, feeding two parameters for bm25.
 let rt = new Retrieval(K=2, B=0.75);
 
 // 2nd step: index the document collection loaded above.
-rt.index(docs);
+rt.index(quotes);
 
-// 3rd step: search.
-
+// 3rd step: integrate search engine into a web app.
 const app = express();
-
-// Configure Pug templating.
-app.set("view engine", "pug");
+app.set("view engine", "pug"); // Configure Pug templating.
 app.set("views", path.join(__dirname, "views"));
-
-// Get HTML Form input.
-app.use(express.urlencoded())
+app.use(express.urlencoded()) // Get HTML Form input.
 
 app.get("/", (req, res) => {
 	res.render("form", {
@@ -34,7 +29,7 @@ app.get("/", (req, res) => {
 
 app.post('/', (req, res) => {
 	res.render("results", {
-		user: req.body,
+		found: rt.search(req.body.query, 5),
 		data: quotes
    });
 });

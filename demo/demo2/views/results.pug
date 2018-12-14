@@ -1,6 +1,9 @@
 html
    body
-      p Hi there - #{user.results}?
+      h3 Search Results:
+      ul
+         each elem in found
+            li= elem     
       h3 Famous Quotes:
       ul
          each elem in data

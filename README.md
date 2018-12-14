@@ -22,7 +22,7 @@ npm install retrieval
 ```
 
 ## 5. Usage:
-The following example is based on demo.js found in the demo folder.
+The following example is based on scenarios.js found in the demo/demo1 folder.
 ```js
 /*
  * Demonstrates how to use the Retrieval module via 4 quick examples.
@@ -89,3 +89,6 @@ git clone https://github.com/zjohn77/retrieval.git
 cd retrieval
 npm install
 ```
+
+## 7. Issues & Potential Enhancements:
+While BM25 is a sparse vector model, recent advances in NLP have made available dense vector models that are better equipped to take advantage of synonyms, polysemy, word order, and other intricate language features. (It would be nice to extend this project to incorporate word2vec, GloVe, FastText.)
