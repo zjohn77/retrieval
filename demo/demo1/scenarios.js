@@ -11,13 +11,13 @@
  * also note that duplicate documents were found, which is fine because they
  * exist in the document collection.
  */
-const docs = require("./data/music-collection"); // load sample documents
-const Retrieval = require("../../../retrieval"); // import the search engine
+const Retrieval = require("../../../retrieval"); // Import the search engine.
+const docs = require("./data/music-collection"); // Load the texts to search.
 
 // 1st step: construct an object, feeding two parameters for bm25.
 let rt = new Retrieval(K=2, B=0.75);
 
-// 2nd step: index the document collection loaded above.
+// 2nd step: index the texts loaded above.
 rt.index(docs);
 
 // 3rd step: search.

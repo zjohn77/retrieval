@@ -5,14 +5,14 @@
  * documents.
  */
 const Retrieval = require("../../../retrieval"); // Import the search engine.
-let quotes = require("./data/quotes"); // Load sample documents.
+let quotes = require("./data/quotes"); // Load the texts to search.
 const express = require('express');
 const path = require('path');
 
 // 1st step: construct an object, feeding two parameters for bm25.
 let rt = new Retrieval(K=2, B=0.75);
 
-// 2nd step: index the document collection loaded above.
+// 2nd step: index the texts loaded above.
 rt.index(quotes);
 
 // 3rd step: integrate search engine into a web app.
