@@ -11,8 +11,8 @@ Develop an Elasticsearch-comparable, full-text search engine using Node.js and m
 * By default, it uses the BM25 similarity, just like [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html)
 * Separates offline indexing from the time-sensitive online search.
 * Each individual NLP component, like the stemmer or the stopword list, is pluggable and carefully researched to keep at the bleeding edge. (For example, the stopword list is a confluence of the best words from three authoritative stopword lists: the Stanford CoreNLP, Journal of Machine Learning Research, and NLTK.)
+* Dockerfile and Docker image are available. Conveniently tryout the module.
 * Reasonable unit test coverage, continuous integration, and separation of concerns for each functionality.
-* Dockerfile and Docker images available to facilitate quickly trying out the demos.
 
 ## 3. The Design:
 This function indexes an input array of texts using the Okapi BM25 similarity, and stores the resulting document-term matrix as an array of arrays. Function's main argument is a text document collection in the form of an array of strings, with each text document being a string.
@@ -23,7 +23,7 @@ npm install retrieval
 ```
 
 ## 5. Usage:
-The following example is from "scenarios.js" found in the "demo/demo1" directory.
+The example right below is from "demo/demo2/scenarios.js".
 ```js
 /*
  * Demonstrates how to use the Retrieval module via 4 quick examples.
@@ -85,14 +85,14 @@ results.map(result => console.log(result));
 ```
 
 ## 6. Integrate into your project:
-Here's a web app with full-text search capability added:
 ![demo2](demo2.gif "demo2")
 
-Try it. Enter: 
+
+Right above is a web app with full-text search capability added. Try it! Enter: 
 ```bash
 npm run demo2
 ```
-Then, point browser to localhost:8080 . Source code is "demo/demo2/scenarios.js".
+Then, point browser to **localhost:8080** . Source code is "demo/demo2/scenarios.js".
 
 ## 7. Build upon it:
 Clone it to your computer:
@@ -105,6 +105,7 @@ Run unit tests:
 ```bash
 npm test
 ```
+Pull requests are welcome and much appreciated.
 
 ## 8. Issues & Potential Enhancements:
 While BM25 is a sparse vector model, recent advances in NLP have made available dense vector models that are better equipped to take advantage of synonyms, polysemy, word order, and other intricate language features. (It would be nice to extend this project to incorporate word2vec, GloVe, FastText.)
