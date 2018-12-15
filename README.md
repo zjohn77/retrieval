@@ -2,8 +2,16 @@
 
 ![alt text](diagram.png "Project Diagram")
 
+1. [ The Goal of this Project ](#1-the-goal-of-this-project)
+2. [ Key Features and Benefits ](#2-key-features-and-benefits)
+3. [ The Design ](#3-the-design)
+4. [ Install ](#4-install)
+5. [ Usage ](#5-usage)
+6. [ Integrate into your project ](#6-integrate-into-your-project)
+7. [ Build upon it ](#7-build-upon-it)
+
 ## 1. The Goal of this Project:
-Develop an Elasticsearch-comparable, full-text search engine using Node.js and making use of cutting-edge NLP concepts. And make it tunable to different types of texts (e.g. tweets, scientifc journals) via the use of [BM25](https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html)
+Develop an Elasticsearch-comparable, full-text search engine using JavaScript and making use of cutting-edge NLP concepts. And make it tunable to different types of texts (e.g. tweets, scientifc journals) via the use of [BM25](https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html)
 
 ## 2. Key Features and Benefits:
 * Source code is on NPM and can be deployed to a large, growing ecosystem of Node.js apps such as Express, Meteor, etc.
@@ -11,19 +19,22 @@ Develop an Elasticsearch-comparable, full-text search engine using Node.js and m
 * By default, it uses the BM25 similarity, just like [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html)
 * Separates offline indexing from the time-sensitive online search.
 * Each individual NLP component, like the stemmer or the stopword list, is pluggable and carefully researched to keep at the bleeding edge. (For example, the stopword list is a confluence of the best words from three authoritative stopword lists: the Stanford CoreNLP, Journal of Machine Learning Research, and NLTK.)
-* Dockerfile and Docker image are available. Conveniently tryout the module.
+* Dockerfile and [Docker image](https://hub.docker.com/r/jj232/retrieval) are available. Conveniently tryout the module.
 * Reasonable unit test coverage, continuous integration, and separation of concerns for each functionality.
 
 ## 3. The Design:
-This function indexes an input array of texts using the Okapi BM25 similarity, and stores the resulting document-term matrix as an array of arrays. Function's main argument is a text document collection in the form of an array of strings, with each text document being a string.
+The main program, "Retrieval.js", is an object with a method to index an input array of texts using the Okapi BM25 similarity, and stores the resulting document-term matrix as an array of arrays.
 
 ## 4. Install:
 ```bash
 npm install retrieval
 ```
 
+## Quick Tryout:
+
+
 ## 5. Usage:
-The example right below is from "demo/demo2/scenarios.js".
+The example right below is from "demo/demo1/scenarios.js".
 ```js
 /*
  * Demonstrates how to use the Retrieval module via 4 quick examples.
@@ -57,6 +68,8 @@ results.map(result => console.log(result));
 // 01 - Diabelli Variations - Theme Vivace & Variation 1 Alla Marcia Maestoso.flac
 // 07 - Rhapsody On A Theme of Paganini (Introduction and 24 Variations).flac
 // 10 - Diabelli Variations - Variation 10 Presto.flac
+
+
 
 console.log("\n\n----------------------------------------------------------");
 console.log("Top 5 search results for the query 'opera browser':\n")
@@ -93,6 +106,9 @@ Right above is a web app with full-text search capability added. Try it! Enter:
 npm run demo2
 ```
 Then, point browser to **localhost:8080** . Source code is "demo/demo2/scenarios.js".
+
+
+## Contribute
 
 ## 7. Build upon it:
 Clone it to your computer:

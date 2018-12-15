@@ -4,10 +4,12 @@
  * representation, and enables natural language search of this collection of 
  * documents.
  */
-const Retrieval = require("../../../retrieval"); // Import the search engine.
+const path = require("path");
+
+// Import the search engine.
+const Retrieval = require(path.join(__dirname, "..", "..", "src", "Retrieval.js"));
 let quotes = require("./data/quotes"); // Load the texts to search.
-const express = require('express');
-const path = require('path');
+const express = require("express");
 
 // 1st step: construct an object, feeding two parameters for bm25.
 let rt = new Retrieval(K=2, B=0.75);
@@ -27,7 +29,7 @@ app.get("/", (req, res) => {
    });
 });
 
-app.post('/', (req, res) => {
+app.post("/", (req, res) => {
 	res.render("results", {
 		found: rt.search(req.body.query, 5),
 		data: quotes
@@ -35,3 +37,4 @@ app.post('/', (req, res) => {
 });
 
 app.listen(8080);	// Listen to port 8080.
+console.log("The demo2 app is running on localhost");

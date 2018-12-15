@@ -11,7 +11,10 @@
  * also note that duplicate documents were found, which is fine because they
  * exist in the document collection.
  */
-const Retrieval = require("../../../retrieval"); // Import the search engine.
+const path = require("path");
+
+// Import the search engine.
+const Retrieval = require(path.join(__dirname, "..", "..", "src", "Retrieval.js"));
 const docs = require("./data/music-collection"); // Load the texts to search.
 
 // 1st step: construct an object, feeding two parameters for bm25.

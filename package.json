@@ -1,6 +1,6 @@
 {
   "name": "retrieval",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "description": "Full text search engine in js. Features BM25 ranking function that can be tuned.",
   "author": "John Jung",
   "license": "MIT",

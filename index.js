@@ -1,1 +1,1 @@
-module.exports = require('./src/Retrieval.js');
+module.exports = require("./src/Retrieval.js");
