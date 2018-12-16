@@ -8,6 +8,7 @@
 
 ## 1. Basic Idea and Key Benefits:
 ![alt text](diagram.png "Project Diagram")
+
 An [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html)-comparable, full-text search engine using JavaScript that leverages advanced Natural Language Processing. The [BM25](https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html) ranking function at the core of this project is tunable to different types of texts (e.g. tweets, scientifc journals). **The key features are**: 
 
 * The JavaScript source code can be natively deployed on the server side to Node.js as well as on the client side in chrome extensions, single-page apps, serverless, React Native, edge computing, and many other applications.
@@ -20,19 +21,19 @@ An [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/curre
 ## 2. Deploy Full-Text Search in an App:
 ![demo2](demo2.gif "demo2")
 
-Right above is a demo Express app (see [MEAN stack](http://mean.io/)) with full-text search capability added. The easy way to try this demo is to run its docker image  
+
+Right above is a demo Express app (see [MEAN stack](http://mean.io/)) with full-text search capability added. The easy way to try this demo is to run its docker image as below, then point browser to **localhost:3000** . 
 ```bash
-npm run jj232/retrieval 
+docker run --rm -d -p 3000:8080 jj232/retrieval
 ```
 
-Another option to try this demo (source code in "demo/demo2") is to 
-Enter: 
+Or you can run the command below after [installing](#3-install):
 ```bash
 npm run demo2
 ```
 Then, point browser to **localhost:8080** . 
 
-The recommended way complex
+**Suggestions on deploying**: For integrating the module into a simple js app, the demo right here shows this to be doable in only a few lines of code--see source code at "./demo/demo2/server.js". But for a more complex software solution, or one that relies on other languages/RTEs, the recommended way is to Dockerize this module and then expose as a microservice.
 
 ## 3. Install:
 For the latest release:
@@ -68,7 +69,7 @@ rt.search("theme and variations", 5)   // Top 5 search results for the query 'th
 // 07 - Rhapsody On A Theme of Paganini (Introduction and 24 Variations).flac
 // 10 - Diabelli Variations - Variation 10 Presto.flac
 ```
-The example right above is from "demo/demo1/scenarios.js". To run full example, do:
+The example right above is from "./demo/demo1/scenarios.js". To run full example, do:
 ```bash
 npm run demo1
 ```
