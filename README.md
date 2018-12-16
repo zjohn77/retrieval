@@ -9,10 +9,10 @@
 ## 1. Basic Idea and Key Benefits:
 ![alt text](diagram.png "Project Diagram")
 
-An [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html)-comparable, full-text search engine using JavaScript that leverages advanced Natural Language Processing. The [BM25](https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html) ranking function at the core of this project is tunable to different types of texts (e.g. tweets, scientifc journals). **The key features are**: 
+An [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html)-comparable, full-text search engine using JavaScript that leverages advanced Natural Language Processing. The [BM25](https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html) ranking function at the core of this project is tunable to different types of texts (e.g. tweets, scientific journals, legal writing). **Key features are**: 
 
-* The JavaScript source code can be natively deployed on the server side to Node.js as well as on the client side in chrome extensions, single-page apps, serverless, React Native, edge computing, and many other applications.
-* The accuracy and versatility of BM25 comes from being able to [tune its parameters](https://www.elastic.co/blog/practical-bm25-part-3-considerations-for-picking-b-and-k1-in-elasticsearch) to specific types of documents (e.g. tweets, scientific journals, legal writing).
+* The JavaScript source code can be natively deployed on the server side to Node.js as well as on the client side in browser extensions, single-page apps, serverless, React Native, edge computing, and many other applications.
+* The accuracy and versatility of BM25 comes from being able to [tune its parameters](https://www.elastic.co/blog/practical-bm25-part-3-considerations-for-picking-b-and-k1-in-elasticsearch) to specific types of documents.
 * Separates offline indexing from the time-sensitive online search.
 * Each individual NLP component, like the stemmer or the stopword list, is pluggable and carefully researched to keep at the bleeding edge. (For example, the stopword list is a confluence of the best words from three authoritative stopword lists: the Stanford CoreNLP, Journal of Machine Learning Research, and NLTK.)
 * Dockerfile and [Docker image](https://hub.docker.com/r/jj232/retrieval) are available. Conveniently tryout the module.
@@ -22,7 +22,7 @@ An [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/curre
 ![demo2](demo2.gif "demo2")
 
 
-Right above is a demo Express app (see [MEAN stack](http://mean.io/)) with full-text search capability added. The easy way to try this demo is to run its docker image as below, then point browser to **localhost:3000** . 
+Right above is a demo Express app (see [MEAN stack](http://mean.io/)) enhanced with full-text search capability. The easy way to try this demo is to run its docker image as below, then point browser to **localhost:3000** . 
 ```bash
 docker run --rm -d -p 3000:8080 jj232/retrieval
 ```
@@ -69,7 +69,7 @@ rt.search("theme and variations", 5)   // Top 5 search results for the query 'th
 // 07 - Rhapsody On A Theme of Paganini (Introduction and 24 Variations).flac
 // 10 - Diabelli Variations - Variation 10 Presto.flac
 ```
-The example right above is from "./demo/demo1/scenarios.js". To run full example, do:
+The example right above is from "./demo/demo1/scenarios.js". To run the full example, do:
 ```bash
 npm run demo1
 ```
