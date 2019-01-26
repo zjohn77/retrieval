@@ -1,7 +1,7 @@
 /*
  * Specifies a class whose primary functionality is taking an array of texts,
- * parses it using natural language processing, indexes it via Okapi-BM25 
- * representation, and enables natural language search of this collection of 
+ * parsing it using natural language processing, indexes it via Okapi-BM25 
+ * representation, and enabling full-text search on this collection of 
  * documents.
  */
 const _ = require('lodash');
@@ -21,27 +21,34 @@ module.exports = (function() {
 		this.termIndex = {};
   	};
 
+     
   	//METHODS
   	Retrieval.prototype.index = function(docArray) {
 		this.docArray = docArray;
 
-		// Convert the document list to a sparse matrix index.
+		// Convert the document list to a sparse matrix search index.
 		let bm25 = new Bm25(corpusMatr = this.docArray.map(chunkFilterStem),
 								  K = this.K,
-								  B = this.B);
+                          B = this.B
+                         );
 
-		// Creates a sparse matrix with initial data; number datatype.
+		// Create a sparse matrix with initial data and the 'number' datatype.
 		this.docIndex = math.sparse(bm25.buildMatr(), 
 											 'number'
 											);
 
-		// Creates a reverse index for fast keyword search.
+		// Create a reverse index for fast keyword search.
 		this.termIndex = bm25.getTerms();
 	};
 
+
   	Retrieval.prototype.search = function(query_, N=10) {
-		// STEP 1: Maps a query string to the vector space of the document collection.
-		try {
+		// Project query to vector space spanned by the indexed documents.
+      		
+      // STEP 1: Vectorize the query string and then multiply it by the bm25 matrix, which equals
+      // a vector of bm25 scores for this query. Finally, concat & valueOf turns mathjs vector object 
+      // into an array of document scores.
+      try {
 			var queryVector = query2vec(query_, 
 												 this.termIndex
 												);
@@ -49,21 +56,22 @@ module.exports = (function() {
 		catch(error) {
 			return [];
 		}
-		
-		// STEP 2: The bm25 matrix times the query vector => vector of IR scores for this query.
-		// concat & valueOf turns mathjs vector object into an array of document scores.
-		let docScores = [].concat(...math.multiply(this.docIndex,
+      
+      let docScores = [].concat(...math.multiply(this.docIndex,
 																 queryVector
 																)
 													.valueOf()
 										 );
 
-		// STEP 3: Retrieve the 10 highest scoring document indices.
+
+		// STEP 2: Retrieve the 10 highest scoring document indices.
 		let topNIndices = topIndices(docScores).slice(0, N);
 
-		// STEP 4: Retrieve the documents best matching the query.
+
+		// STEP 3: Retrieve the documents best matching the query.
 		return topNIndices.map((idx) => this.docArray[idx])
 	};
+
 
    return Retrieval;
 })();

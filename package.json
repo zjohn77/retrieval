@@ -1,7 +1,7 @@
 {
   "name": "retrieval",
-  "version": "1.7.2",
-  "description": "Full text search engine in js. Features BM25 ranking function that can be tuned.",
+  "version": "1.7.3",
+  "description": "Full text search engine in js that features tunable BM25 ranking function.",
   "author": "John Jung",
   "license": "MIT",
   "main": "index.js",
@@ -39,7 +39,7 @@
     "tf-idf",
     "search engine",
     "full text search",
-    "natural language search",
+    "natural language processing",
     "information retrieval",
     "bm25",
     "term weighting",
