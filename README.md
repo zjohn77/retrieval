@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/zjohn77/retrieval.svg?branch=master)](https://travis-ci.org/zjohn77/retrieval)
 ## Table of Contents
 1. [Basic Idea and Key Benefits](#1-basic-idea-and-key-benefits)
 2. [Deploy Full-Text Search in an App](#2-deploy-full-text-search-in-an-app)
